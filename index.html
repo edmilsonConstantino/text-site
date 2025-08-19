@@ -307,6 +307,14 @@
             font-size: 1.2rem;
             margin-right: 0.8rem;
             flex-shrink: 0;
+            overflow: hidden;
+            border: 2px solid rgba(233, 30, 99, 0.2);
+        }
+
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .testimonial-info h4 {
@@ -397,6 +405,135 @@
         .indicator.active {
             background: var(--primary);
             transform: scale(1.3);
+        }
+
+        /* ========== FORMULÁRIO DE TESTEMUNHO ========== */
+        .testimonial-form-section {
+            background: white;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(233, 30, 99, 0.1);
+        }
+
+        .testimonial-form-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonial-form-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding: 0 20px;
+        }
+
+        .testimonial-form {
+            background: var(--bg-light);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 0 15px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.4rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            transition: border-color 0.3s ease;
+            background: white;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.1);
+        }
+
+        .form-control::placeholder {
+            color: #a0aec0;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .btn-submit-testimonial {
+            background: var(--gradient-cta);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-submit-testimonial:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .btn-submit-testimonial:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .success-message {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+
+        .success-message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .success-message i {
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
         }
 
         /* ========== SEÇÃO CTA PRINCIPAL ========== */
@@ -595,8 +732,14 @@
                 padding: 0 15px;
             }
 
-            .security-item small {
-                font-size: 0.7rem;
+            .testimonial-form {
+                margin: 0 10px;
+                padding: 1.2rem;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 0;
             }
         }
 
@@ -813,6 +956,49 @@
                     <!-- Indicadores serão inseridos aqui dinamicamente -->
                 </div>
             </div>
+            
+            <!-- Formulário para adicionar testemunho -->
+            <div class="testimonial-form-section">
+                <h4 class="testimonial-form-title">
+                    <span class="emoji">💬</span>Compartilhe seu Resultado
+                </h4>
+                <p class="testimonial-form-subtitle">
+                    Conte sua experiência e inspire outras mulheres!
+                </p>
+                
+                <form class="testimonial-form" id="testimonialForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="testimonialName">Seu Nome</label>
+                            <input type="text" class="form-control" id="testimonialName" placeholder="Ex: Maria Silva" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="testimonialLocation">Sua Cidade</label>
+                            <input type="text" class="form-control" id="testimonialLocation" placeholder="Ex: São Paulo, SP" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="testimonialText">Seu Depoimento</label>
+                        <textarea class="form-control" id="testimonialText" placeholder="Conte como o método transformou sua vida..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="testimonialResult">Resultado Obtido</label>
+                        <input type="text" class="form-control" id="testimonialResult" placeholder="Ex: 85% das estrias eliminadas em 40 dias" required>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit-testimonial">
+                        <i class="fas fa-paper-plane"></i>
+                        Enviar Meu Testemunho
+                    </button>
+                    
+                    <div class="success-message" id="successMessage">
+                        <i class="fas fa-check-circle"></i>
+                        Testemunho adicionado com sucesso! Obrigada por compartilhar sua experiência! ❤️
+                    </div>
+                </form>
+            </div>
         </div>
     </section>
 
@@ -882,6 +1068,7 @@
                 name: "Maria Silva",
                 location: "São Paulo, SP",
                 avatar: "M",
+                photo: "maria-silva.jpg", // Adicione o caminho da foto aqui
                 rating: 5,
                 text: "Nunca acreditei que seria possível eliminar minhas estrias antigas, mas em apenas 45 dias usando este método, minha pele ficou completamente lisa! Estou radiante de felicidade!",
                 result: "90% das estrias eliminadas em 45 dias"
@@ -890,6 +1077,7 @@
                 name: "Ana Costa",
                 location: "Rio de Janeiro, RJ",
                 avatar: "A",
+                photo: "ana-costa.jpg", // Adicione o caminho da foto aqui
                 rating: 5,
                 text: "Após 3 gravidezes, achei que nunca mais teria uma pele bonita. Mas este método me surpreendeu completamente. Minhas estrias praticamente sumiram!",
                 result: "Estrias da gravidez reduzidas em 85%"
@@ -898,6 +1086,7 @@
                 name: "Juliana Santos",
                 location: "Belo Horizonte, MG",
                 avatar: "J",
+                photo: "juliana-santos.jpg", // Adicione o caminho da foto aqui
                 rating: 5,
                 text: "Já havia tentado de tudo: cremes caros, tratamentos estéticos... Nada funcionava. Este método natural foi o único que realmente me deu resultados visíveis.",
                 result: "Economizou R$ 3.000 em tratamentos"
@@ -906,6 +1095,7 @@
                 name: "Carla Oliveira",
                 location: "Salvador, BA",
                 avatar: "C",
+                photo: "carla-oliveira.jpg", // Adicione o caminho da foto aqui
                 rating: 5,
                 text: "Minha autoestima estava no fundo do poço por causa das estrias. Hoje me sinto uma mulher nova! Posso usar biquíni sem vergonha novamente.",
                 result: "Autoestima renovada em 30 dias"
@@ -914,6 +1104,7 @@
                 name: "Patricia Lima",
                 location: "Brasília, DF",
                 avatar: "P",
+                photo: "patricia-lima.jpg", // Adicione o caminho da foto aqui
                 rating: 5,
                 text: "O que mais me impressionou foi a simplicidade do método. Ingredientes naturais que temos em casa foram suficientes para transformar minha pele completamente.",
                 result: "100% ingredientes naturais"
@@ -922,6 +1113,7 @@
                 name: "Fernanda Rocha",
                 location: "Porto Alegre, RS",
                 avatar: "F",
+                photo: "fernanda-rocha.jpg", // Adicione o caminho da foto aqui
                 rating: 5,
                 text: "Estava cética no início, mas os resultados falam por si só. Minhas estrias vermelhas clarearam muito e as antigas praticamente desapareceram!",
                 result: "Resultados visíveis em 21 dias"
@@ -947,7 +1139,112 @@
             });
         }
 
+        // ========== FORMULÁRIO DE TESTEMUNHO ==========
+        function initTestimonialForm() {
+            const form = document.getElementById('testimonialForm');
+            if (!form) return;
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const submitBtn = form.querySelector('.btn-submit-testimonial');
+                const successMessage = document.getElementById('successMessage');
+                
+                // Desabilitar botão
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+                
+                // Coletar dados do formulário
+                const formData = {
+                    name: document.getElementById('testimonialName').value.trim(),
+                    location: document.getElementById('testimonialLocation').value.trim(),
+                    text: document.getElementById('testimonialText').value.trim(),
+                    result: document.getElementById('testimonialResult').value.trim()
+                };
+                
+                // Validar dados
+                if (!formData.name || !formData.location || !formData.text || !formData.result) {
+                    alert('Por favor, preencha todos os campos.');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Meu Testemunho';
+                    return;
+                }
+                
+                // Simular envio (2 segundos)
+                setTimeout(() => {
+                    // Criar novo testemunho
+                    const newTestimonial = {
+                        name: formData.name,
+                        location: formData.location,
+                        avatar: formData.name.charAt(0).toUpperCase(),
+                        photo: null, // Será null para testemunhos de usuários
+                        rating: 5,
+                        text: formData.text,
+                        result: formData.result
+                    };
+                    
+                    // Adicionar ao início da lista
+                    testimonials.unshift(newTestimonial);
+                    
+                    // Re-renderizar testemunhos
+                    renderTestimonials();
+                    
+                    // Resetar posição do carrossel para mostrar o novo testemunho
+                    currentTestimonial = 0;
+                    updateTestimonialPosition();
+                    
+                    // Mostrar mensagem de sucesso
+                    successMessage.classList.add('show');
+                    
+                    // Resetar formulário
+                    form.reset();
+                    
+                    // Resetar botão
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Meu Testemunho';
+                    
+                    // Esconder mensagem após 5 segundos
+                    setTimeout(() => {
+                        successMessage.classList.remove('show');
+                    }, 5000);
+                    
+                    // Log para tracking
+                    console.log('✅ Novo testemunho adicionado:', newTestimonial);
+                    
+                    // Analytics tracking
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'testimonial_submitted', {
+                            event_category: 'engagement',
+                            event_label: 'user_testimonial'
+                        });
+                    }
+                    
+                    // Facebook Pixel
+                    if (typeof fbq !== 'undefined') {
+                        fbq('track', 'SubmitApplication', {
+                            content_name: 'User Testimonial'
+                        });
+                    }
+                    
+                }, 2000);
+            });
+        }
+
         // ========== SISTEMA DE TESTEMUNHOS ==========
+        function createAvatarHTML(testimonial) {
+            const photoPath = testimonial.photo ? `/fotos/${testimonial.photo}` : null;
+            
+            if (photoPath) {
+                return `
+                    <div class="testimonial-avatar">
+                        <img src="${photoPath}" alt="${testimonial.name}" onerror="this.style.display='none'; this.parentNode.innerHTML='${testimonial.avatar}'; this.parentNode.style.background='var(--gradient-hero)';">
+                    </div>
+                `;
+            } else {
+                return `<div class="testimonial-avatar">${testimonial.avatar}</div>`;
+            }
+        }
+
         function renderTestimonials() {
             const track = document.getElementById('testimonialTrack');
             const indicators = document.getElementById('indicators');
@@ -957,10 +1254,12 @@
             // Renderizar testemunhos
             track.innerHTML = testimonials.map(testimonial => {
                 const stars = '★'.repeat(testimonial.rating);
+                const avatarHTML = createAvatarHTML(testimonial);
+                
                 return `
                     <div class="testimonial-card">
                         <div class="testimonial-header">
-                            <div class="testimonial-avatar">${testimonial.avatar}</div>
+                            ${avatarHTML}
                             <div class="testimonial-info">
                                 <h4>${testimonial.name}</h4>
                                 <div class="location">${testimonial.location}</div>
@@ -1047,6 +1346,7 @@
         function initTestimonials() {
             renderTestimonials();
             updateTestimonialPosition();
+            initTestimonialForm();
             
             // Eventos de navegação
             const prevBtn = document.getElementById('prevBtn');
@@ -1232,6 +1532,7 @@
             const testimonial = {
                 avatar: newTestimonial.name.charAt(0).toUpperCase(),
                 rating: 5,
+                photo: newTestimonial.photo || null, // Suporte para foto
                 ...newTestimonial
             };
 
@@ -1243,6 +1544,18 @@
             
             console.log('✅ Testemunho adicionado com sucesso!', testimonial);
             return true;
+        }
+
+        // Função para atualizar foto de um testemunho
+        function updateTestimonialPhoto(index, photoFileName) {
+            if (index >= 0 && index < testimonials.length) {
+                testimonials[index].photo = photoFileName;
+                renderTestimonials();
+                console.log(`✅ Foto atualizada para ${testimonials[index].name}: ${photoFileName}`);
+                return true;
+            }
+            console.error('❌ Índice inválido:', index);
+            return false;
         }
 
         // Função para listar todos os testemunhos
@@ -1271,7 +1584,8 @@
         window.testimonialsAdmin = {
             add: addTestimonial,
             list: listTestimonials,
-            remove: removeTestimonial
+            remove: removeTestimonial,
+            updatePhoto: updateTestimonialPhoto
         };
 
         // ========== INICIALIZAÇÃO ==========
@@ -1284,7 +1598,8 @@
             
             console.log('✅ Landing Page Anti-Estrias Mobile inicializada!');
             console.log('🔧 Para gerenciar testemunhos via console, use: window.testimonialsAdmin');
-            console.log('📝 Exemplo: window.testimonialsAdmin.add({name: "Nome", location: "Cidade, UF", text: "Depoimento...", result: "Resultado obtido"})');
+            console.log('📝 Adicionar testemunho: window.testimonialsAdmin.add({name: "Nome", location: "Cidade, UF", text: "Depoimento...", result: "Resultado obtido", photo: "nome-foto.jpg"})');
+            console.log('🖼️ Atualizar foto: window.testimonialsAdmin.updatePhoto(0, "nova-foto.jpg")');
         }
 
         // Inicializar quando DOM estiver pronto
@@ -1293,4 +1608,4 @@
         } else {
             init();
         }
-    </script>
+</script>
