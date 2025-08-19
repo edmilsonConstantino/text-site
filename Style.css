@@ -1,0 +1,496 @@
+/* ========== CONFIGURAÇÕES GERAIS ========== */
+:root {
+    /* EDITE AQUI AS SUAS CORES */
+    --cor-primaria: #6366f1;
+    --cor-secundaria: #f59e0b;
+    --cor-destaque: #ec4899;
+    --cor-sucesso: #10b981;
+    --gradiente-hero: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradiente-cta: linear-gradient(45deg, var(--cor-secundaria) 0%, #f97316 100%);
+    --sombra-suave: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    --sombra-forte: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* ========== SEÇÃO HERO/TÍTULO ========== */
+.hero-section {
+    background: var(--gradiente-hero);
+    color: white;
+    padding: 60px 0 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300"><path d="M0,256L48,240C96,224,192,192,288,192C384,192,480,224,576,213.3C672,203,768,149,864,128C960,107,1056,117,1152,138.7C1248,160,1344,192,1392,208L1440,224L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z" fill="rgba(255,255,255,0.1)"/></svg>') no-repeat bottom;
+    background-size: cover;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, #f8fafc);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: clamp(2.2rem, 4.5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.text-highlight {
+    background: linear-gradient(45deg, var(--cor-secundaria), var(--cor-destaque));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    font-weight: 400;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ========== SEÇÃO DO VÍDEO ========== */
+.video-section {
+    background: #f8fafc;
+}
+
+.video-container {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--sombra-forte);
+    background: #000;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+}
+
+.video-wrapper iframe,
+.video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 20px;
+}
+
+.video-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d3748 100%);
+    color: white;
+    text-align: center;
+}
+
+.video-placeholder i {
+    color: var(--cor-secundaria);
+    animation: pulse 2s infinite;
+}
+
+/* ========== BANNER DE TEXTOS (TICKER) ========== */
+.ticker-section {
+    background: var(--cor-primaria);
+    color: white;
+    padding: 15px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.ticker-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.ticker-content {
+    display: flex;
+    animation: ticker 30s linear infinite;
+    white-space: nowrap;
+}
+
+.ticker-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 3rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.ticker-item i {
+    margin-right: 0.5rem;
+}
+
+/* ========== SEÇÃO CTA ========== */
+.cta-section {
+    background: white;
+}
+
+.cta-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--cor-primaria);
+    margin-bottom: 1rem;
+}
+
+.cta-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: #6b7280;
+    margin-bottom: 2rem;
+}
+
+.btn-cta {
+    background: var(--gradiente-cta);
+    border: none;
+    color: white;
+    padding: 18px 40px;
+    font-size: clamp(1rem, 2.2vw, 1.3rem);
+    font-weight: 700;
+    border-radius: 50px;
+    box-shadow: var(--sombra-forte);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    min-width: 280px;
+    justify-content: center;
+}
+
+.btn-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.btn-cta:active {
+    transform: translateY(-1px);
+}
+
+.cta-info {
+    margin-top: 2rem;
+}
+
+.cta-info i {
+    font-size: 1.5rem;
+}
+
+.cta-info small {
+    color: #6b7280;
+    font-weight: 500;
+}
+
+/* ========== ANIMAÇÕES ========== */
+@keyframes ticker {
+    0% {
+        transform: translate3d(100%, 0, 0);
+    }
+    100% {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========== RESPONSIVIDADE MOBILE ========== */
+@media (max-width: 768px) {
+    /* Hero Section Mobile */
+    .hero-section {
+        padding: 10px 0 10px;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.5rem;
+        padding: 0 15px;
+    }
+
+    /* Video Section Mobile */
+    .video-section {
+        padding: 2rem 0 !important;
+    }
+
+    .video-container {
+        border-radius: 15px;
+        margin: 0 15px;
+    }
+
+    .video-placeholder h4 {
+        font-size: 1.1rem;
+    }
+
+    .video-placeholder p {
+        font-size: 0.8rem;
+        padding: 0 20px;
+    }
+
+    /* Ticker Mobile */
+    .ticker-item {
+        font-size: 0.85rem;
+        padding: 0 1.5rem;
+    }
+
+    .ticker-content {
+        animation: ticker 20s linear infinite;
+    }
+
+    /* CTA Section Mobile */
+    .cta-section {
+        padding: 3rem 0 !important;
+    }
+
+    .cta-title {
+        font-size: 1.6rem;
+        line-height: 1.3;
+    }
+
+    .cta-subtitle {
+        font-size: 0.95rem;
+        padding: 0 15px;
+    }
+
+    .btn-cta {
+        width: 90%;
+        max-width: 320px;
+        font-size: 1rem;
+        padding: 16px 30px;
+        min-width: auto;
+    }
+
+    .cta-info .col-4 {
+        margin-bottom: 1rem;
+    }
+
+    .cta-info i {
+        font-size: 1.2rem;
+    }
+
+    /* Container Mobile */
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    /* Centralização do vídeo mobile */
+    .video-section .row {
+        margin: 0;
+    }
+
+    .video-section .col-12 {
+        padding: 0 15px;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* ========== RESPONSIVIDADE TABLET ========== */
+@media (max-width: 992px) and (min-width: 769px) {
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.15rem;
+    }
+
+    .cta-title {
+        font-size: 2.2rem;
+    }
+
+    .btn-cta {
+        font-size: 1.2rem;
+        min-width: 300px;
+    }
+}
+
+/* ========== RESPONSIVIDADE MOBILE PEQUENO ========== */
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 30px 0 25px;
+    }
+
+    .hero-title {
+        font-size: 1.6rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+
+    .video-section {
+        padding: 1.5rem 0 !important;
+    }
+
+    .video-container {
+        margin: 0 10px;
+        border-radius: 12px;
+    }
+
+    .cta-title {
+        font-size: 1.4rem;
+    }
+
+    .cta-subtitle {
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+
+    .btn-cta {
+        font-size: 0.95rem;
+        padding: 14px 25px;
+        width: 95%;
+        min-width: auto;
+    }
+
+    .ticker-item {
+        font-size: 0.75rem;
+        padding: 0 1rem;
+    }
+
+    .cta-info i {
+        font-size: 1rem;
+    }
+
+    .cta-info small {
+        font-size: 0.75rem;
+    }
+}
+
+/* ========== MELHORIAS PARA TOUCH DEVICES ========== */
+@media (hover: none) and (pointer: coarse) {
+    .btn-cta:hover {
+        transform: none;
+        box-shadow: var(--sombra-forte);
+    }
+
+    .btn-cta:active {
+        transform: scale(0.98);
+        transition: transform 0.1s;
+    }
+}
+
+/* ========== LANDSCAPE MOBILE ========== */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero-section {
+        padding: 20px 0 15px;
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .video-section {
+        padding: 1rem 0 !important;
+    }
+
+    .cta-section {
+        padding: 1.5rem 0 !important;
+    }
+}
+
+/* ========== ACESSIBILIDADE ========== */
+@media (prefers-reduced-motion: reduce) {
+    .ticker-content {
+        animation: none;
+    }
+    
+    .fade-in-up {
+        transition: none;
+    }
+    
+    .video-placeholder i {
+        animation: none;
+    }
+    
+    .btn-cta {
+        transition: none;
+    }
+}
+
+/* ========== DARK MODE SUPPORT ========== */
+@media (prefers-color-scheme: dark) {
+    .video-section {
+        background: #1a1a1a;
+    }
+    
+    .cta-section {
+        background: #0f0f0f;
+        color: #ffffff;
+    }
+    
+    .cta-subtitle {
+        color: #a0a0a0;
+    }
+    
+    .cta-info small {
+        color: #a0a0a0;
+    }
+}
