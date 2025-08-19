@@ -231,6 +231,174 @@
             color: var(--text-muted);
         }
 
+        /* ========== SEÇÃO DE TESTEMUNHOS ========== */
+        .testimonials-section {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f4f8 100%);
+            padding: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(233, 30, 99, 0.05) 0%, transparent 70%);
+            animation: floating 20s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .testimonials-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonials-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 0 20px;
+        }
+
+        .testimonial-carousel {
+            position: relative;
+            padding: 0 15px;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            gap: 15px;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-soft);
+            min-width: 280px;
+            position: relative;
+            border: 1px solid rgba(233, 30, 99, 0.1);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-hero);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-right: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .testimonial-info h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 0 0 0.2rem;
+        }
+
+        .testimonial-info .location {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .testimonial-stars {
+            color: #fbbf24;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .testimonial-text {
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .testimonial-result {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f9ff 100%);
+            border-radius: 10px;
+            padding: 0.8rem;
+            font-size: 0.8rem;
+            color: var(--success);
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .nav-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .nav-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .testimonial-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(233, 30, 99, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: var(--primary);
+            transform: scale(1.3);
+        }
+
         /* ========== SEÇÃO CTA PRINCIPAL ========== */
         .cta-section {
             background: white;
@@ -368,6 +536,18 @@
             }
         }
 
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-10px) rotate(1deg);
+            }
+            66% {
+                transform: translateY(5px) rotate(-1deg);
+            }
+        }
+
         .fade-in-up {
             animation: fadeInUp 0.8s ease forwards;
         }
@@ -387,6 +567,16 @@
             .video-container {
                 margin: 0 10px;
                 border-radius: 12px;
+            }
+
+            .testimonials-title {
+                font-size: 1.2rem;
+                padding: 0 15px;
+            }
+
+            .testimonial-card {
+                min-width: 260px;
+                padding: 1.2rem;
             }
 
             .cta-title {
@@ -420,6 +610,10 @@
                 padding: 1.5rem 0;
             }
 
+            .testimonials-section {
+                padding: 2rem 0;
+            }
+
             .results-section {
                 padding: 2rem 0;
             }
@@ -446,6 +640,10 @@
             .fade-in-up {
                 animation: none;
             }
+
+            .testimonials-section::before {
+                animation: none;
+            }
         }
 
         /* ========== TOUCH OPTIMIZATION ========== */
@@ -456,6 +654,15 @@
 
             .btn-cta:active {
                 transform: scale(0.96);
+                transition: transform 0.1s;
+            }
+
+            .nav-btn:hover {
+                transform: none;
+            }
+
+            .nav-btn:active {
+                transform: scale(0.95);
                 transition: transform 0.1s;
             }
         }
@@ -562,7 +769,7 @@
                             <i class="fas fa-leaf"></i>
                         </div>
                         <div class="result-text">100% Natural</div>
-                        <div class="result-desc">Sem química </div>
+                        <div class="result-desc">Sem químicos  </div>
                     </div>
                 </div>
                 <div class="col-4">
@@ -573,6 +780,37 @@
                         <div class="result-text">Pele Lisa</div>
                         <div class="result-desc">Estrias reduzidas em 90%</div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SEÇÃO DE TESTEMUNHOS ========== -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h3 class="testimonials-title fade-in-up">
+                <span class="emoji">💕</span>Veja os Resultados Reais
+            </h3>
+            <p class="testimonials-subtitle fade-in-up">
+                Milhares de mulheres já transformaram suas vidas com nosso método
+            </p>
+            
+            <div class="testimonial-carousel fade-in-up">
+                <div class="testimonial-track" id="testimonialTrack">
+                    <!-- Os testemunhos serão inseridos aqui dinamicamente -->
+                </div>
+                
+                <div class="testimonial-nav">
+                    <button class="nav-btn" id="prevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="nav-btn" id="nextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="testimonial-indicators" id="indicators">
+                    <!-- Indicadores serão inseridos aqui dinamicamente -->
                 </div>
             </div>
         </div>
@@ -638,6 +876,61 @@
             isMobile: window.innerWidth <= 768
         };
 
+        // ========== DADOS DOS TESTEMUNHOS ==========
+        const testimonials = [
+            {
+                name: "Maria Silva",
+                location: "São Paulo, SP",
+                avatar: "M",
+                rating: 5,
+                text: "Nunca acreditei que seria possível eliminar minhas estrias antigas, mas em apenas 45 dias usando este método, minha pele ficou completamente lisa! Estou radiante de felicidade!",
+                result: "90% das estrias eliminadas em 45 dias"
+            },
+            {
+                name: "Ana Costa",
+                location: "Rio de Janeiro, RJ",
+                avatar: "A",
+                rating: 5,
+                text: "Após 3 gravidezes, achei que nunca mais teria uma pele bonita. Mas este método me surpreendeu completamente. Minhas estrias praticamente sumiram!",
+                result: "Estrias da gravidez reduzidas em 85%"
+            },
+            {
+                name: "Juliana Santos",
+                location: "Belo Horizonte, MG",
+                avatar: "J",
+                rating: 5,
+                text: "Já havia tentado de tudo: cremes caros, tratamentos estéticos... Nada funcionava. Este método natural foi o único que realmente me deu resultados visíveis.",
+                result: "Economizou R$ 3.000 em tratamentos"
+            },
+            {
+                name: "Carla Oliveira",
+                location: "Salvador, BA",
+                avatar: "C",
+                rating: 5,
+                text: "Minha autoestima estava no fundo do poço por causa das estrias. Hoje me sinto uma mulher nova! Posso usar biquíni sem vergonha novamente.",
+                result: "Autoestima renovada em 30 dias"
+            },
+            {
+                name: "Patricia Lima",
+                location: "Brasília, DF",
+                avatar: "P",
+                rating: 5,
+                text: "O que mais me impressionou foi a simplicidade do método. Ingredientes naturais que temos em casa foram suficientes para transformar minha pele completamente.",
+                result: "100% ingredientes naturais"
+            },
+            {
+                name: "Fernanda Rocha",
+                location: "Porto Alegre, RS",
+                avatar: "F",
+                rating: 5,
+                text: "Estava cética no início, mas os resultados falam por si só. Minhas estrias vermelhas clarearam muito e as antigas praticamente desapareceram!",
+                result: "Resultados visíveis em 21 dias"
+            }
+        ];
+
+        let currentTestimonial = 0;
+        let testimonialTimer;
+
         // ========== TICKER INFINITO ==========
         function initTicker() {
             const ticker = document.querySelector('.ticker-content');
@@ -651,6 +944,200 @@
             // Pausar quando a aba não está ativa
             document.addEventListener('visibilitychange', () => {
                 ticker.style.animationPlayState = document.hidden ? 'paused' : 'running';
+            });
+        }
+
+        // ========== SISTEMA DE TESTEMUNHOS ==========
+        function renderTestimonials() {
+            const track = document.getElementById('testimonialTrack');
+            const indicators = document.getElementById('indicators');
+            
+            if (!track || !indicators) return;
+
+            // Renderizar testemunhos
+            track.innerHTML = testimonials.map(testimonial => {
+                const stars = '★'.repeat(testimonial.rating);
+                return `
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">${testimonial.avatar}</div>
+                            <div class="testimonial-info">
+                                <h4>${testimonial.name}</h4>
+                                <div class="location">${testimonial.location}</div>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">${stars}</div>
+                        <div class="testimonial-text">"${testimonial.text}"</div>
+                        <div class="testimonial-result">
+                            <i class="fas fa-check-circle me-1"></i>
+                            ${testimonial.result}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            // Renderizar indicadores
+            indicators.innerHTML = testimonials.map((_, index) => 
+                `<div class="indicator ${index === 0 ? 'active' : ''}" data-index="${index}"></div>`
+            ).join('');
+
+            // Adicionar eventos aos indicadores
+            indicators.querySelectorAll('.indicator').forEach((indicator, index) => {
+                indicator.addEventListener('click', () => goToTestimonial(index));
+            });
+        }
+
+        function updateTestimonialPosition() {
+            const track = document.getElementById('testimonialTrack');
+            if (!track) return;
+
+            const cardWidth = 295; // 280px + 15px gap
+            const offset = -currentTestimonial * cardWidth;
+            track.style.transform = `translateX(${offset}px)`;
+
+            // Atualizar indicadores
+            document.querySelectorAll('.indicator').forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentTestimonial);
+            });
+
+            // Atualizar botões de navegação
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            if (prevBtn) prevBtn.disabled = currentTestimonial === 0;
+            if (nextBtn) nextBtn.disabled = currentTestimonial === testimonials.length - 1;
+        }
+
+        function goToTestimonial(index) {
+            currentTestimonial = Math.max(0, Math.min(index, testimonials.length - 1));
+            updateTestimonialPosition();
+            resetAutoPlay();
+        }
+
+        function nextTestimonial() {
+            if (currentTestimonial < testimonials.length - 1) {
+                currentTestimonial++;
+                updateTestimonialPosition();
+            }
+        }
+
+        function prevTestimonial() {
+            if (currentTestimonial > 0) {
+                currentTestimonial--;
+                updateTestimonialPosition();
+            }
+        }
+
+        function autoPlayTestimonials() {
+            testimonialTimer = setInterval(() => {
+                if (currentTestimonial < testimonials.length - 1) {
+                    nextTestimonial();
+                } else {
+                    currentTestimonial = 0;
+                    updateTestimonialPosition();
+                }
+            }, 5000);
+        }
+
+        function resetAutoPlay() {
+            clearInterval(testimonialTimer);
+            setTimeout(() => autoPlayTestimonials(), 3000);
+        }
+
+        function initTestimonials() {
+            renderTestimonials();
+            updateTestimonialPosition();
+            
+            // Eventos de navegação
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            if (prevBtn) prevBtn.addEventListener('click', () => {
+                prevTestimonial();
+                resetAutoPlay();
+            });
+            
+            if (nextBtn) nextBtn.addEventListener('click', () => {
+                nextTestimonial();
+                resetAutoPlay();
+            });
+
+            // Touch/Swipe support para mobile
+            let startX = 0;
+            let isDragging = false;
+            
+            const track = document.getElementById('testimonialTrack');
+            if (track) {
+                track.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                    isDragging = true;
+                });
+
+                track.addEventListener('touchmove', (e) => {
+                    if (!isDragging) return;
+                    e.preventDefault();
+                });
+
+                track.addEventListener('touchend', (e) => {
+                    if (!isDragging) return;
+                    
+                    const endX = e.changedTouches[0].clientX;
+                    const diff = startX - endX;
+                    
+                    if (Math.abs(diff) > 50) {
+                        if (diff > 0) {
+                            nextTestimonial();
+                        } else {
+                            prevTestimonial();
+                        }
+                        resetAutoPlay();
+                    }
+                    
+                    isDragging = false;
+                });
+
+                // Mouse events for desktop
+                track.addEventListener('mousedown', (e) => {
+                    startX = e.clientX;
+                    isDragging = true;
+                    track.style.cursor = 'grabbing';
+                });
+
+                document.addEventListener('mousemove', (e) => {
+                    if (!isDragging) return;
+                    e.preventDefault();
+                });
+
+                document.addEventListener('mouseup', (e) => {
+                    if (!isDragging) return;
+                    
+                    const endX = e.clientX;
+                    const diff = startX - endX;
+                    
+                    if (Math.abs(diff) > 50) {
+                        if (diff > 0) {
+                            nextTestimonial();
+                        } else {
+                            prevTestimonial();
+                        }
+                        resetAutoPlay();
+                    }
+                    
+                    isDragging = false;
+                    track.style.cursor = 'grab';
+                });
+            }
+
+            // Iniciar autoplay
+            autoPlayTestimonials();
+
+            // Pausar autoplay quando não visível
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    clearInterval(testimonialTimer);
+                } else {
+                    autoPlayTestimonials();
+                }
             });
         }
 
@@ -729,13 +1216,75 @@
             console.log('📊 UTM Parameters:', utms);
         }
 
+        // ========== GERENCIAMENTO DE TESTEMUNHOS (PARA ADMIN) ==========
+        // Função para adicionar novos testemunhos (você pode chamar via console do navegador)
+        function addTestimonial(newTestimonial) {
+            // Validar dados
+            const required = ['name', 'location', 'text', 'result'];
+            const missing = required.filter(field => !newTestimonial[field]);
+            
+            if (missing.length > 0) {
+                console.error('❌ Campos obrigatórios faltando:', missing);
+                return false;
+            }
+
+            // Adicionar valores padrão
+            const testimonial = {
+                avatar: newTestimonial.name.charAt(0).toUpperCase(),
+                rating: 5,
+                ...newTestimonial
+            };
+
+            // Adicionar ao array
+            testimonials.push(testimonial);
+            
+            // Re-renderizar
+            renderTestimonials();
+            
+            console.log('✅ Testemunho adicionado com sucesso!', testimonial);
+            return true;
+        }
+
+        // Função para listar todos os testemunhos
+        function listTestimonials() {
+            console.log('📋 Testemunhos atuais:', testimonials);
+            return testimonials;
+        }
+
+        // Função para remover testemunho por índice
+        function removeTestimonial(index) {
+            if (index >= 0 && index < testimonials.length) {
+                const removed = testimonials.splice(index, 1)[0];
+                renderTestimonials();
+                if (currentTestimonial >= testimonials.length) {
+                    currentTestimonial = testimonials.length - 1;
+                    updateTestimonialPosition();
+                }
+                console.log('🗑️ Testemunho removido:', removed);
+                return true;
+            }
+            console.error('❌ Índice inválido:', index);
+            return false;
+        }
+
+        // Expor funções globalmente para uso via console
+        window.testimonialsAdmin = {
+            add: addTestimonial,
+            list: listTestimonials,
+            remove: removeTestimonial
+        };
+
         // ========== INICIALIZAÇÃO ==========
         function init() {
             initTicker();
             initScrollAnimations();
+            initTestimonials();
             initCTATracking();
             handleUTM();
+            
             console.log('✅ Landing Page Anti-Estrias Mobile inicializada!');
+            console.log('🔧 Para gerenciar testemunhos via console, use: window.testimonialsAdmin');
+            console.log('📝 Exemplo: window.testimonialsAdmin.add({name: "Nome", location: "Cidade, UF", text: "Depoimento...", result: "Resultado obtido"})');
         }
 
         // Inicializar quando DOM estiver pronto
@@ -745,5 +1294,3 @@
             init();
         }
     </script>
-</body>
-</html>
