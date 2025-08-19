@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elimine Estrias em 30 Dias - Método Comprovado</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome para ícones -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ========== CONFIGURAÇÕES GERAIS ========== */
+        :root {
+            --primary: #e91e63;
+            --secondary: #ff6b9d;
+            --accent: #00d4aa;
+            --success: #10b981;
+            --gradient-hero: linear-gradient(135deg, #e91e63 0%, #ff6b9d 100%);
+            --gradient-cta: linear-gradient(45deg, #00d4aa 0%, #00b894 100%);
+            --shadow-soft: 0 8px 25px rgba(233, 30, 99, 0.15);
+            --shadow-strong: 0 15px 35px rgba(233, 30, 99, 0.25);
+            --bg-light: #fafbfc;
+            --text-dark: #2d3748;
+            --text-muted: #6b7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--bg-light);
+        }
+
+        /* ========== TICKER DE CREDIBILIDADE ========== */
+        .ticker-section {
+            background: var(--primary);
+            color: white;
+            padding: 12px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ticker-wrapper {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .ticker-content {
+            display: flex;
+            animation: ticker 25s linear infinite;
+            white-space: nowrap;
+        }
+
+        .ticker-item {
+            display: inline-flex;
+            align-items: center;
+            padding: 0 2rem;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .ticker-item i {
+            margin-right: 0.4rem;
+            color: var(--accent);
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero-section {
+            background: var(--gradient-hero);
+            color: white;
+            padding: 40px 0 30px;
+            position: relative;
+            text-align: center;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to bottom, transparent, var(--bg-light));
+            pointer-events: none;
+        }
+
+        .hero-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero-subtitle {
+            font-size: 0.95rem;
+            font-weight: 400;
+            opacity: 0.95;
+            margin-bottom: 0;
+            padding: 0 20px;
+        }
+
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 0.3rem;
+        }
+
+        /* ========== SEÇÃO DO VÍDEO ========== */
+        .video-section {
+            background: var(--bg-light);
+            padding: 2rem 0;
+        }
+
+        .video-container {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-strong);
+            background: #000;
+            margin: 0 15px;
+            max-width: 100%;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+
+        .video-wrapper iframe,
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 16px;
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d3748 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .video-placeholder i {
+            color: var(--accent);
+            animation: pulse 2s infinite;
+            margin-bottom: 1rem;
+        }
+
+        .video-placeholder h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .video-placeholder p {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            padding: 0 30px;
+        }
+
+        /* ========== RESULTADOS RÁPIDOS ========== */
+        .results-section {
+            background: white;
+            padding: 2.5rem 0;
+        }
+
+        .results-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .result-item {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .result-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-hero);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .result-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .result-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .result-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ========== SEÇÃO CTA PRINCIPAL ========== */
+        .cta-section {
+            background: white;
+            padding: 2.5rem 0;
+            text-align: center;
+        }
+
+        .cta-badge {
+            background: var(--accent);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .cta-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .cta-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            padding: 0 20px;
+        }
+
+        .btn-cta {
+            background: var(--gradient-cta);
+            border: none;
+            color: white;
+            padding: 16px 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            box-shadow: var(--shadow-strong);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 90%;
+            max-width: 320px;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(0, 212, 170, 0.3);
+            color: white;
+        }
+
+        .btn-cta:active {
+            transform: scale(0.98);
+        }
+
+        .btn-cta.processing {
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        /* ========== GARANTIAS E SEGURANÇA ========== */
+        .security-section {
+            background: var(--bg-light);
+            padding: 1.5rem 0;
+        }
+
+        .security-items {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .security-item {
+            text-align: center;
+            flex: 1;
+            min-width: 80px;
+        }
+
+        .security-item i {
+            font-size: 1.3rem;
+            color: var(--success);
+            margin-bottom: 0.5rem;
+        }
+
+        .security-item small {
+            display: block;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.75rem;
+            line-height: 1.2;
+        }
+
+        /* ========== ANIMAÇÕES ========== */
+        @keyframes ticker {
+            0% {
+                transform: translate3d(100%, 0, 0);
+            }
+            100% {
+                transform: translate3d(-100%, 0, 0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* ========== OTIMIZAÇÕES MOBILE ========== */
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.6rem;
+                padding: 0 15px;
+            }
+
+            .hero-subtitle {
+                font-size: 0.9rem;
+                padding: 0 15px;
+            }
+
+            .video-container {
+                margin: 0 10px;
+                border-radius: 12px;
+            }
+
+            .cta-title {
+                font-size: 1.3rem;
+                padding: 0 15px;
+            }
+
+            .btn-cta {
+                width: 95%;
+                font-size: 1rem;
+                padding: 15px 25px;
+            }
+
+            .results-title {
+                font-size: 1.2rem;
+                padding: 0 15px;
+            }
+
+            .security-item small {
+                font-size: 0.7rem;
+            }
+        }
+
+        /* ========== LANDSCAPE MOBILE ========== */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .hero-section {
+                padding: 25px 0 20px;
+            }
+
+            .video-section {
+                padding: 1.5rem 0;
+            }
+
+            .results-section {
+                padding: 2rem 0;
+            }
+
+            .cta-section {
+                padding: 2rem 0;
+            }
+        }
+
+        /* ========== ACESSIBILIDADE ========== */
+        @media (prefers-reduced-motion: reduce) {
+            .ticker-content {
+                animation: none;
+            }
+            
+            .video-placeholder i {
+                animation: none;
+            }
+            
+            .btn-cta {
+                transition: none;
+            }
+
+            .fade-in-up {
+                animation: none;
+            }
+        }
+
+        /* ========== TOUCH OPTIMIZATION ========== */
+        @media (hover: none) and (pointer: coarse) {
+            .btn-cta:hover {
+                transform: none;
+            }
+
+            .btn-cta:active {
+                transform: scale(0.96);
+                transition: transform 0.1s;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== TICKER DE CREDIBILIDADE ========== -->
+    <section class="ticker-section">
+        <div class="ticker-wrapper">
+            <div class="ticker-content">
+                <span class="ticker-item">
+                    <i class="fas fa-star"></i>
+                    +15.000 mulheres transformadas
+                </span>
+                <span class="ticker-item">
+                    <i class="fas fa-trophy"></i>
+                    Método #1 contra estrias
+                </span>
+                <span class="ticker-item">
+                    <i class="fas fa-clock"></i>
+                    Resultados em 30 dias
+                </span>
+                <span class="ticker-item">
+                    <i class="fas fa-shield-alt"></i>
+                    Garantia de 7 dias
+                </span>
+                <span class="ticker-item">
+                    <i class="fas fa-medal"></i>
+                    Aprovado por dermatologistas
+                </span>
+                <span class="ticker-item">
+                    <i class="fas fa-heart"></i>
+                    97% de satisfação
+                </span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="hero-content fade-in-up">
+                        <h1 class="hero-title">
+                            <span class="emoji">✨</span>Elimine suas Estrias em 30 Dias
+                        </h1>
+                        <p class="hero-subtitle">
+                            Descubra o método natural que está transformando a pele de milhares de mulheres
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SEÇÃO DO VÍDEO ========== -->
+    <section class="video-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="video-container fade-in-up">
+                        <div class="video-wrapper">
+                            <!-- SUBSTITUA PELO SEU VÍDEO -->
+                            <!-- Para YouTube: -->
+                            <!-- <iframe src="https://www.youtube.com/embed/SEU_VIDEO_ID?autoplay=1&mute=1" allowfullscreen></iframe> -->
+                            
+                            <!-- Para arquivo MP4: -->
+                            <!-- <video controls autoplay muted class="w-100 h-100">
+                                <source src="seu-video.mp4" type="video/mp4">
+                            </video> -->
+                            
+                            <!-- Placeholder (remova quando adicionar o vídeo) -->
+                            <div class="video-placeholder">
+                                <i class="fas fa-play-circle fa-4x"></i>
+                                <h4>Método Anti-Estrias</h4>
+                                <p>Assista ao vídeo e descubra como eliminar estrias naturalmente</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== RESULTADOS RÁPIDOS ========== -->
+    <section class="results-section">
+        <div class="container">
+            <h3 class="results-title fade-in-up">O que você vai conquistar:</h3>
+            <div class="row">
+                <div class="col-4">
+                    <div class="result-item fade-in-up">
+                        <div class="result-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="result-text">30 Dias</div>
+                        <div class="result-desc">Primeiros resultados visíveis</div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="result-item fade-in-up">
+                        <div class="result-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="result-text">100% Natural</div>
+                        <div class="result-desc">Sem química </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="result-item fade-in-up">
+                        <div class="result-icon">
+                            <i class="fas fa-sparkles"></i>
+                        </div>
+                        <div class="result-text">Pele Lisa</div>
+                        <div class="result-desc">Estrias reduzidas em 90%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SEÇÃO CTA PRINCIPAL ========== -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="cta-content fade-in-up">
+                        <div class="cta-badge">Oferta Limitada</div>
+                        <h3 class="cta-title">
+                            Transforme sua Pele Agora
+                        </h3>
+                        <p class="cta-subtitle">
+                            Junte-se às milhares de mulheres que já eliminaram suas estrias
+                        </p>
+                        
+                        <!-- Botão CTA Principal -->
+                        <a href="#" class="btn btn-cta" id="mainCTA">
+                            <i class="fas fa-heart me-2"></i>
+                            Quero Eliminar Minhas Estrias
+                            <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== GARANTIAS E SEGURANÇA ========== -->
+    <section class="security-section">
+        <div class="container">
+            <div class="security-items fade-in-up">
+                <div class="security-item">
+                    <i class="fas fa-lock"></i>
+                    <small>Compra 100% Segura</small>
+                </div>
+                <div class="security-item">
+                    <i class="fas fa-undo"></i>
+                    <small>7 Dias de Garantia</small>
+                </div>
+                <div class="security-item">
+                    <i class="fas fa-headset"></i>
+                    <small>Suporte Exclusivo</small>
+                </div>
+                <div class="security-item">
+                    <i class="fas fa-medal"></i>
+                    <small>Método Aprovado</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // ========== CONFIGURAÇÕES ==========
+        const CONFIG = {
+            tickerSpeed: 20000,
+            isMobile: window.innerWidth <= 768
+        };
+
+        // ========== TICKER INFINITO ==========
+        function initTicker() {
+            const ticker = document.querySelector('.ticker-content');
+            if (!ticker) return;
+            
+            const originalContent = ticker.innerHTML;
+            ticker.innerHTML = originalContent + originalContent + originalContent;
+            
+            ticker.style.animationDuration = `${CONFIG.tickerSpeed}ms`;
+            
+            // Pausar quando a aba não está ativa
+            document.addEventListener('visibilitychange', () => {
+                ticker.style.animationPlayState = document.hidden ? 'paused' : 'running';
+            });
+        }
+
+        // ========== ANIMAÇÕES DE SCROLL ==========
+        function initScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = Math.random() * 0.5 + 's';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-up').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // ========== TRACKING CTA ==========
+        function initCTATracking() {
+            const cta = document.getElementById('mainCTA');
+            if (!cta) return;
+
+            cta.addEventListener('click', function(e) {
+                if (this.classList.contains('processing')) {
+                    e.preventDefault();
+                    return;
+                }
+
+                this.classList.add('processing');
+                
+                console.log('🚀 CTA Estrias clicado!', {
+                    timestamp: new Date().toISOString(),
+                    device: CONFIG.isMobile ? 'mobile' : 'desktop',
+                    produto: 'anti-estrias'
+                });
+
+                // Google Analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'cta_click', {
+                        event_category: 'estrias',
+                        event_label: 'main_cta',
+                        device_type: CONFIG.isMobile ? 'mobile' : 'desktop'
+                    });
+                }
+
+                // Facebook Pixel
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'Lead', {
+                        content_name: 'Anti-Estrias VSL',
+                        device_type: CONFIG.isMobile ? 'mobile' : 'desktop'
+                    });
+                }
+
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Redirecionando...';
+                
+                setTimeout(() => {
+                    this.classList.remove('processing');
+                    this.innerHTML = originalText;
+                    // window.location.href = 'SEU_LINK_DE_CHECKOUT';
+                }, 2000);
+            });
+        }
+
+        // ========== UTM PARAMETERS ==========
+        function handleUTM() {
+            const params = new URLSearchParams(window.location.search);
+            const utms = {};
+            
+            ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(param => {
+                if (params.get(param)) utms[param] = params.get(param);
+            });
+            
+            window.utmData = utms;
+            console.log('📊 UTM Parameters:', utms);
+        }
+
+        // ========== INICIALIZAÇÃO ==========
+        function init() {
+            initTicker();
+            initScrollAnimations();
+            initCTATracking();
+            handleUTM();
+            console.log('✅ Landing Page Anti-Estrias Mobile inicializada!');
+        }
+
+        // Inicializar quando DOM estiver pronto
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    </script>
+</body>
+</html>
